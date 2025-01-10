@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #a8e063, #56ab2f);
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+    }
+    .confirmation-box {
+        text-align: center;
+        margin-top: 350px;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .confirmation-box h1 {
+        margin: 0;
+        color: #333;
+    }
+</style>
+
+<div class="confirmation-box">
+    <h1>Main sent Successful!</h1>
+    <p>Thank you for subscribing.</p>
+</div>
+{% endblock content %}

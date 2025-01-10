@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #a8e063, #56ab2f);
+            margin: 0;
+            padding: 0;
+        }
+        .plans-container {
+            text-align: center;
+            padding: 50px;
+        }
+        .plans {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .plan-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .plan-card h3 {
+            margin: 10px 0;
+        }
+        .plan-card p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .plan-card button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #56ab2f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .plan-card button:hover {
+            background-color: #45a027;
+        }
+
+    </style>
+
+    <div class="plans-container">
+        <h1>Choose Your Plan</h1>
+        <div class="plans">
+            <div class="plan-card">
+                <h3>Basic</h3>
+                <p>$99/month</p>
+                <p>Post 10 blogs/month</p>
+                <p>Turn readers into subscribers</p>
+                <button onclick="window.location.href='{% url 'payment_page' 99 %}'">Select and Pay</button>
+            </div>
+            <div class="plan-card">
+                <h3>Standard</h3>
+                <p>$199/month</p>
+                <p>Post 100 blogs/month</p>
+                <p>Turn readers into subscribers</p>
+                <button onclick="window.location.href='{% url 'payment_page' 199 %}'">Select and Pay</button>
+            </div>
+            <div class="plan-card">
+                <h3>Premium</h3>
+                <p>$299/month</p>
+                <p>Post unlimited blogs/month</p>
+                <p>Turn readers into subscribers</p>
+                <button onclick="window.location.href='{% url 'payment_page' 299 %}'">Select and Pay</button>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
+

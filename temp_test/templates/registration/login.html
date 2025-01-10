@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #a8e063, #56ab2f);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: #f0f8f0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .login-container label {
+            text-align: left;
+            font-size: 14px;
+            color: #555;
+        }
+        .login-container button {
+            padding: 10px;
+            background-color: #56ab2f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background-color: #45a027;
+        }
+        .login-container .terms {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+        .login-container .terms input {
+            margin-right: 10px;
+        }
+        .login-container .footer-links {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #333;
+        }
+        .login-container .footer-links a {
+            color: #56ab2f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .login-container .footer-links a:hover {
+            text-decoration: underline;
+        }
+        .login-container .footer-note {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login Form</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Username">
+            
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Password">
+            
+            <div class="terms">
+                <input type="checkbox" name="terms" id="terms">
+                <label for="terms">I Agree to the Terms & Conditions</label>
+            </div>
+            
+            <button type="submit">Login</button>
+        </form>
+        <div class="footer-links">
+            Already have an Account? <a href="{% url 'user_register' %}">Register Now!</a><br>
+            Go to <a href= {% url "index" %}>home page!</a>
+        </div>
+        <div class="footer-note">
+            &copy; 2018 MYBLOG Login Form. All rights reserved | Design by Admin
+        </div>
+    </div>
+</body>
+</html>

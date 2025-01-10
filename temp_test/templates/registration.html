@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #a8e063, #56ab2f);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .signup-container {
+            background-color: #f0f8f0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        .signup-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .signup-container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .signup-container input[type="text"],
+        .signup-container input[type="email"],
+        .signup-container input[type="password"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .signup-container label {
+            text-align: left;
+            font-size: 14px;
+            color: #555;
+        }
+        .signup-container button {
+            padding: 10px;
+            background-color: #56ab2f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .signup-container button:hover {
+            background-color: #45a027;
+        }
+        .signup-container .terms {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+        .signup-container .terms input {
+            margin-right: 10px;
+        }
+        .signup-container .footer-links {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #333;
+        }
+        .signup-container .footer-links a {
+            color: #56ab2f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .signup-container .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>SignUp Form</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Username">
+            
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Email">
+            
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Password">
+            
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password">
+            
+            <div class="terms">
+                <input type="checkbox" name="terms" id="terms">
+                <label for="terms">I Agree to the Terms & Conditions</label>
+            </div>
+            
+            <button type="submit">SIGN UP</button>
+        </form>
+        <div class="footer-links">
+            Don't have an Account? <a href="{% url 'user_login' %}">Login Now!</a><br>
+            Go to <a href="{% url "index" %}">HOME page</a>
+        </div>
+    </div>
+</body>
+</html>

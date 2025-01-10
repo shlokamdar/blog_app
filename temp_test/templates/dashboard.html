@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block content %}
+<style> 
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #a8e063, #56ab2f);
+    margin: 0;
+    padding: 0;
+}
+.dashboard-container {
+    margin:auto;
+    margin-top:20px; 
+    width: 90%;
+    max-width: 800px;
+    background-color: #f0f8f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.dashboard-header h2 {
+    margin: 0;
+    color: #333;
+}
+.dashboard-header a {
+    padding: 10px 15px;
+    background-color: #56ab2f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.dashboard-header a:hover {
+    background-color: #45a027;
+}
+.posts-list {
+    list-style: none;
+    padding: 0;
+}
+.post-item {
+    background-color: white;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.post-item h3 {
+    margin: 0;
+    color: #333;
+}
+.post-item p {
+    margin: 10px 0;
+    color: #555;
+}
+.post-actions {
+    display: flex;
+    gap: 10px;
+}
+.post-actions a {
+    padding: 5px 10px;
+    background-color: #56ab2f;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 12px;
+}
+.post-actions a:hover {
+    background-color: #45a027;
+}
+.logout-button {
+    margin-top: 20px;
+    text-align: center;
+}
+.logout-button a {
+    padding: 10px 15px;
+    background-color: #ff5e57;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.logout-button a:hover {
+    background-color: #e04848;
+}
+</style>
+
+<div class="dashboard-container">
+<div class="dashboard-header">
+    <h2>Your Posts</h2>
+    <a href="{% url 'create_post' %}">Create New Post</a>
+</div>
+<ul class="posts-list">
+    {% for p in post %}
+    <li class="post-item">
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.content }}</p>
+        <div class="post-actions">
+            <a href="{% url 'edit_post' p.id %}">Edit</a>
+            <a href="{% url 'delete_post' p.id %}">Delete</a>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+<div class="logout-button">
+    <a href="{% url 'user_logout' %}">Logout</a>
+</div>
+</div>
+
+{% endblock content %}
